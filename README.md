@@ -1,6 +1,6 @@
 # stordy-scalability-tests
 
-This repository is part of a master's thesis project called "Stordy". "Stordy" is an indexing system developed as a addition/contribution for SpeedyChain project, available at [SpeedyChain GitHub Repository](https://github.com/conseg/speedychain) and [Stordy GitHub Repository](https://github.com/leonardocreatus/stordy).
+This repository is part of a master's thesis project called "Stordy". "Stordy" is an indexing system developed by [Leonardo](https://github.com/leonardocreatus) as a addition/contribution for SpeedyChain project, available at [SpeedyChain GitHub Repository](https://github.com/conseg/speedychain) and [Stordy GitHub Repository](https://github.com/leonardocreatus/stordy).
 
 ## Introduction
 
