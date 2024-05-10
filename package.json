@@ -1,0 +1,14 @@
+{
+  "name": "seu-projeto",
+  "version": "1.0.0",
+  "description": "Descrição do seu projeto",
+  "main": "index.js",
+  "scripts": {
+    "tests": "node addBlock.js && node addTransaction.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.7",
+    "path": "^0.12.7",
+    "performance-now": "^2.1.0"
+  }
+}
