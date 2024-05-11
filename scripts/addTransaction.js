@@ -12,11 +12,11 @@ const transactionService = protoDescriptor.stordy.transaction.TransactionService
 
 const client = new transactionService('localhost:50051', grpc.credentials.createInsecure());
 
-let qtdTransacoes = 20; //Indique a quantidade de transações a serem inseridas
-let contador = 0;
+let transactionsQt = 20; //Indique a quantidade de transações a serem inseridas
+let counter = 0;
 let arrTransactions = [];
 
-for (let i = 0; i < qtdTransacoes+1; i++) {
+for (let i = 0; i < transactionsQt+1; i++) {
     const qtd = (i % 2 === 0) ? 1 : 499999;
     const transaction = {
         bpk: "block", 
@@ -44,12 +44,12 @@ async function sendTransaction(transaction) {
             } else {
                 const endTime = now(); 
                 const timeElapsedInMs = endTime - startTime;
-                if (contador % 2 == 0) {
+                if (counter % 2 == 0) {
                     console.log(timeElapsedInMs.toFixed(0)+"ms"); 
                 }
                 resolve(response);
             }
-            contador++;
+            counter++;
         });
     });
 }
