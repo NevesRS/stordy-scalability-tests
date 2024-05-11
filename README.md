@@ -1,6 +1,6 @@
 # stordy-scalability-tests
 
-This repository is part of a master's thesis project called "Stordy". "Stordy" is an indexing system developed as a addition/contribution for SpeedyChain project, available at [SpeedyChain GitHub Repository](https://github.com/conseg/speedychain) and [Stordy GitHub Repository](https://github.com/leonardocreatus/stordy).
+This repository is part of a master's thesis project called "Stordy". "Stordy" is an indexing system developed by [Leonardo](https://github.com/leonardocreatus) as a addition/contribution for SpeedyChain project, available at [SpeedyChain GitHub Repository](https://github.com/conseg/speedychain) and [Stordy GitHub Repository](https://github.com/leonardocreatus/stordy).
 
 ## Introduction
 
@@ -13,9 +13,9 @@ To run the scalability tests, follow these steps:
 1. Ensure that the "stordy" project is set up and running correctly.
 2. Clone this repository to your local machine.
 3. Navigate to the project directory in your terminal.
-4. Run the command `npm install` for ensure that all dependencies are installed
+4. Run the command `npm install` for ensure that all dependencies are installed.
 5. Run the command `npm run tests`.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](MIT-LICENSE.txt).
