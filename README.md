@@ -4,7 +4,7 @@ This repository is part of a master's thesis project called "Stordy". "Stordy" i
 
 ## Introduction
 
-The purpose of this repository is to provide a set of scalability tests for the "stordy" indexing system. These tests aim to evaluate the performance of "stordy" under various load conditions, helping to identify potential bottlenecks and areas for optimization.
+The purpose of this repository is to provide a set of scalability tests for the "stordy" indexing system. These tests aim to evaluate the performance of "stordy" under various approachs and load conditions, helping to identify potential bottlenecks and areas for optimization.
 
 ## Running the Tests
 
