@@ -13,7 +13,7 @@ To run the scalability tests, follow these steps:
 1. Ensure that the "stordy" project is set up and running correctly.
 2. Clone this repository to your local machine.
 3. Navigate to the project directory in your terminal.
-4. Run the command `npm install` for ensure that all dependencies are installed
+4. Run the command `npm install` for ensure that all dependencies are installed.
 5. Run the command `npm run tests`.
 
 ## License
