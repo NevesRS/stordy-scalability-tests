@@ -4,10 +4,11 @@
   "description": "Descrição do seu projeto",
   "main": "index.js",
   "scripts": {
-    "tests": "node scripts/addBlock.js && node scripts/addTransaction.js"
+    "tests": "node scripts/addBlock.js && node scripts/transaction.js"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.10.7",
+    "json2csv": "^6.0.0-alpha.2",
     "path": "^0.12.7",
     "performance-now": "^2.1.0"
   }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package stordy.block;
 
-service BlockService {
+service BlockService{
   rpc AddBlock(Block) returns (Empty) {}
   rpc FindBlock(FindBlockRequest) returns (Block) {}
   rpc LengthBlock(LengthRequest) returns (LengthReply) {}
