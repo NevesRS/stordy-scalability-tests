@@ -61,5 +61,5 @@ async function sendAllTransactions() {
 }
 
 sendAllTransactions()
-    .then(() => console.log("Todas as transações foram enviadas com sucesso!"))
-    .catch(error => console.error("Ocorreu um erro ao enviar as transações:", error));
+    .then(() => console.log("All transactions has been sent!"))
+    .catch(error => console.error("An error has ocurred:", error));

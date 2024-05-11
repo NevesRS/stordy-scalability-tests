@@ -40,7 +40,7 @@ async function sendBlock(block) {
 async function main() {
     try {
         const response = await sendBlock(block);
-        console.log('Respose:', response);
+        console.log('Response:', response);
     } catch (error) {
         console.error('Error:', error);
     }
