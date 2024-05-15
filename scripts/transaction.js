@@ -14,7 +14,7 @@ const transactionService = protoDescriptor.stordy.transaction.TransactionService
 
 const client = new transactionService('localhost:50051', grpc.credentials.createInsecure());
 
-let transactionsQt = 10; //Indique a quantidade de transações a serem inseridas após 499.999
+let transactionsQt = 10;
 
 async function processTransactions() {
     for (let i = 0; i < transactionsQt; i++) {
@@ -33,7 +33,7 @@ async function processTransactions() {
                 timestamp: "41380415" + i
             }
         };
-        await sendTransaction(transaction); // Aguarda a conclusão da transação atual antes de prosseguir
+        await sendTransaction(transaction); 
     }
 }
 
