@@ -1,7 +1,7 @@
 {
-  "name": "seu-projeto",
+  "name": "stordy-scalability-tests",
   "version": "1.0.0",
-  "description": "Descrição do seu projeto",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "tests": "node scripts/addBlock.js && node scripts/transaction.js"
