@@ -13,7 +13,6 @@ const blockService = protoDescriptor.stordy.block.BlockService;
 const client = new blockService('localhost:50051', grpc.credentials.createInsecure());
 
 let blockQt = 10; //Indique a quantidade de blocos a serem inseridos
-let counter = 0;
 let arrBlock = [];
 
 for (let i = 0; i < blockQt + 1; i++) {
@@ -34,7 +33,7 @@ for (let i = 0; i < blockQt + 1; i++) {
 };
 
 let bool = false;
-console.log("Time taken to insert 1 new block")
+// console.log("Time taken to insert 1 new block")
 async function sendBlock(block) {
     return new Promise((resolve, reject) => {
         const startTime = now();
@@ -45,7 +44,7 @@ async function sendBlock(block) {
                 bool = true;
                 const endTime = now();
                 const timeElapsedInMs = endTime - startTime;
-                console.log('Tempo para inserir bloco:', timeElapsedInMs.toFixed(0) + 'ms');
+                // console.log('Tempo para inserir bloco:', timeElapsedInMs.toFixed(0) + 'ms');
                 resolve(response);
             }
         });
@@ -58,7 +57,7 @@ async function sendBlock(block) {
                 } else {
                     const endTime = now();
                     const timeElapsedInMs = endTime - getLastBlockStartTime;
-                    console.log('Tempo para buscar o último bloco inserido:', timeElapsedInMs.toFixed(0) + 'ms');
+                    // console.log('Tempo para buscar o último bloco inserido:', timeElapsedInMs.toFixed(0) + 'ms');
                     resolve(response);
                 }
             });
