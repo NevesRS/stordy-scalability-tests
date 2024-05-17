@@ -17,7 +17,6 @@ const client = new transactionService('localhost:50051', grpc.credentials.create
 let transactionsQt = 10; //Indique a quantidade de transações a serem inseridas após 499.999
 let arrTransactions = [];
 
-// Array para armazenar os tempos de inserção e busca
 let timingData = [];
 
 for (let i = 0; i < (transactionsQt * 2) + 1; i++) {
@@ -39,7 +38,6 @@ for (let i = 0; i < (transactionsQt * 2) + 1; i++) {
     arrTransactions.push(transaction);
 }
 
-// Função para enviar uma transação e realizar as operações subsequentes
 async function sendTransaction(transaction) {
     try {
         const startTime = now();

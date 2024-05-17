@@ -35,7 +35,6 @@ for (let i = 0; i < blockQt + 1; i++) {
     arrBlock.push(block);
 }
 
-// Função para enviar um bloco e realizar as operações subsequentes
 async function sendBlock(block) {
     try {
         const startTime = now();
@@ -89,7 +88,6 @@ async function sendBlock(block) {
     }
 }
 
-// Função para enviar todos os blocos
 async function sendAllBlocks() {
     for (const block of arrBlock) {
         await sendBlock(block);
@@ -107,7 +105,6 @@ sendAllBlocks()
 
         const csv = parse(csvData, { fields: ['AddBlock', 'GetLastBlock', 'Length'] });
 
-        // Construir o caminho absoluto para salvar o arquivo no diretório desejado
         const filePath = path.join(__dirname, '../formatted_data_block.csv');
 
         fs.writeFileSync(filePath, csv);
