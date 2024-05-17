@@ -39,37 +39,45 @@ for (let i = 0; i < (transactionsQt * 2) + 1; i++) {
     arrTransactions.push(transaction);
 }
 
-// console.log("Time taken to insert 1 transaction after 499.999 inserted into a block")
-
+// Função para enviar uma transação e realizar as operações subsequentes
 async function sendTransaction(transaction) {
-    return new Promise((resolve, reject) => {
+    try {
         const startTime = now();
-        client.AddTransaction(transaction, (error, response) => {
-            if (error) {
-                reject(error);
-            } else {
-                if (transaction.qtd == 1) {
+        const addTransactionResponse = await new Promise((resolve, reject) => {
+            client.AddTransaction(transaction, (error, response) => {
+                if (error) {
+                    reject(error);
+                } else {
                     const endTime = now();
                     const timeElapsedInMs = endTime - startTime;
-                    timingData.push({ AddTransaction: timeElapsedInMs, FindLastTransaction: null });
-                }
-                const findLastTransactionRequest = { bpk: transaction.bpk };
-                const findStartTime = now();
-                client.FindLastTransaction(findLastTransactionRequest, (findError, findResponse) => {
-                    if (findError) {
-                        reject(findError);
-                    } else {
-                        if (transaction.qtd == 1) {
-                            const findEndTime = now();
-                            const findTimeElapsedInMs = findEndTime - findStartTime;
-                            timingData[timingData.length - 1].FindLastTransaction = findTimeElapsedInMs;
-                        }
-                        resolve(response);
+                    if (transaction.qtd == 1) {
+                        timingData.push({ AddTransaction: timeElapsedInMs, FindLastTransaction: null });
                     }
-                });
-            }
+                    resolve(response);
+                }
+            });
         });
-    });
+
+        const findLastTransactionRequest = { bpk: transaction.bpk };
+        const findStartTime = now();
+        const findLastTransactionResponse = await new Promise((resolve, reject) => {
+            client.FindLastTransaction(findLastTransactionRequest, (error, response) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    const findEndTime = now();
+                    const findTimeElapsedInMs = findEndTime - findStartTime;
+                    if (transaction.qtd == 1) {
+                        timingData[timingData.length - 1].FindLastTransaction = findTimeElapsedInMs;
+                    }
+                    resolve(response);
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Erro:', error);
+        throw error;
+    }
 }
 
 async function sendAllTransactions() {
@@ -81,18 +89,16 @@ async function sendAllTransactions() {
 sendAllTransactions()
     .then(() => {
         console.log("All transactions have been sent!");
-        // Preparar os dados para escrita no arquivo CSV
+
         const csvData = timingData.map(entry => ({
             AddTransaction: entry.AddTransaction.toFixed(0) + 'ms',
             FindLastTransaction: entry.FindLastTransaction ? entry.FindLastTransaction.toFixed(0) + 'ms' : ''
         }));
 
-        // Converter os dados para formato CSV
         const csv = parse(csvData, { fields: ['AddTransaction', 'FindLastTransaction'] });
 
-        // Escrever os dados no arquivo
         fs.writeFileSync('formatted_data_transaction.csv', csv, { flag: 'a' });
         fs.appendFileSync('formatted_data_transaction.csv', '\n');
-        console.log("Formatted timing data written to formatted_data_transaction");
+        console.log("Formatted timing data written to formatted_data_transaction.csv");
     })
     .catch(error => console.error("An error has occurred:", error));
