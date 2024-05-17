@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tests": "node scripts/block.js && node scripts/transaction.js"
+    "tests": "node scripts/block.js && node scripts/transaction.js",
+    "block": "node scripts/block"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.10.7",

@@ -107,7 +107,7 @@ sendAllBlocks()
 
         const filePath = path.join(__dirname, '../formatted_data_block.csv');
 
-        fs.writeFileSync(filePath, csv);
+        fs.writeFileSync(filePath, csv, { flag: 'a' });
         fs.appendFileSync(filePath, '\n');
         console.log("Formatted timing data written to formatted_data_block.csv");
     })
